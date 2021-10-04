@@ -1,0 +1,132 @@
+/* Index Styles */
+
+.tusdatos-spotifyapp-index-container {
+    margin: auto;
+    width: 600px;
+    text-align: center;
+}
+
+.tusdatos-spotifyapp-index-container img {
+    width: 300px;
+}
+
+.tusdatos-spotifyapp-index-container h1 {
+    color: forestgreen;
+}
+
+.tusdatos-spotifyapp-index-formcontainer {
+    padding: 30px;
+}
+
+.tusdatos-spotifyapp-index-formcontainer .title {
+    width: 250px;
+    border: 1px solid gainsboro;
+    border-radius: 5px;
+    height: 30px;
+}
+
+.tusdatos-spotifyapp-index-formcontainer .submit {
+    width: 75px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+    height: 30px;
+}
+
+/* Results Styles */
+
+.tusdatos-spotifyapp-results-container {
+    margin: auto;
+    width: 1000px;
+    text-align: center;
+}
+
+.tusdatos-spotifyapp-results-container img {
+    width: 300px;
+}
+
+.tusdatos-spotifyapp-results-container h1 {
+    color: forestgreen;
+}
+
+.tusdatos-spotifyapp-results-container h2 {
+    color: black;
+}
+
+.tusdatos-spotifyapp-results-filterscontainer {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 425px 425px 100px;
+}
+
+.tusdatos-spotifyapp-results-albumsfilter .submit {
+    width: 125px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+    height: 30px;
+}
+
+.tusdatos-spotifyapp-results-albumsfilter select {
+    width: 285px;
+    border: 1px solid gainsboro;
+    border-radius: 5px;
+    height: 30px;
+}
+
+.tusdatos-spotifyapp-results-artistsfilter .submit {
+    width: 125px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+    height: 30px;
+}
+
+.tusdatos-spotifyapp-results-artistsfilter select {
+    width: 285px;
+    border: 1px solid gainsboro;
+    border-radius: 5px;
+    height: 30px;
+}
+
+.tusdatos-spotifyapp-results-return {
+    width: 100px;
+    border: 1px solid forestgreen;
+    border-radius: 5px;
+    background-color: forestgreen;
+    color: white;
+    height: 30px;
+}
+
+.tusdatos-spotifyapp-results-return a {
+    color: white;
+    text-decoration: none;
+}
+
+.tusdatos-spotifyapp-results-return a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.tusdatos-spotifyapp-results-resultscontainer {
+    text-align: left;
+}
+
+.tusdatos-spotifyapp-results-result {
+    display:grid;
+    grid-template-columns: 30% 60%;
+    margin: 20px;
+    border: 1px solid gainsboro;
+}
+
+.tusdatos-spotifyapp-results-result-cover img {
+    width: 250px;
+    height: 250px;
+}
+
+.tusdatos-spotifyapp-results-result-data {
+    padding: 15px;
+}

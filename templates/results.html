@@ -5,44 +5,65 @@
 {% endblock %}
 
 {% block body %}
-<h1>Find on Spotify</h1>
-    <div>
+<div class='tusdatos-spotifyapp-results-container'>
+    <img src="/static/pngegg.png">
+    <div class='tusdatos-spotifyapp-index-formcontainer'>
         <form action='/' method='post'>
-            <label for='title'>Search: </label>
-            <input type='text' name='title' optional>
-            <br/>
+            <input type='text' name='title' class='title'>
             <input class='submit' type='submit' value="Search">
         </form>
     </div>
-
-    <div>
-        <form action="/filter_by_album" method="post">
-            <select name='album'>
-                {% for album in albums_filter %}
-                <option value="{{album}}">{{ album }}</option>
-                {% endfor %}
-            </select>
-            <input value="{{ title }}" name="title" type="hidden">
-            <input class='submit' type='submit' value="Filter by Album">
-        </form>
-        <form action="/filter_by_artist" method="post">
-            <select name='artist'>
-                {% for artist in artists_filter %}
-                <option value="{{artist}}">{{ artist }}</option>
-                {% endfor %}
-            </select>
-            <input value="{{ title }}" name="title" type="hidden">
-            <input class='submit' type='submit' value="Filter by Artist">
-        </form>
+    <h1>Results for: {{ title }}</h1>
+    <div class='tusdatos-spotifyapp-results-filterscontainer'>
+        <div class='tusdatos-spotifyapp-results-albumsfilter'>
+            <form action="/filter_by_album" method="post">
+                <select title='albums-filter' class='select' name='album'>
+                    {% for album in albums_filter %}
+                    <option value="{{album}}">{{ album }}</option>
+                    {% endfor %}
+                </select>
+                <input value="{{ title }}" name="title" type="hidden">
+                <input class='submit' type='submit' value="Filter by Album">
+            </form>
+        </div>
+        <div class='tusdatos-spotifyapp-results-artistsfilter'>
+            <form action="/filter_by_artist" method="post">
+                <select title='artists-filter' class='select' name='artist'>
+                    {% for artist in artists_filter %}
+                    <option value="{{artist}}">{{ artist }}</option>
+                    {% endfor %}
+                </select>
+                <input value="{{ title }}" name="title" type="hidden">
+                <input class='submit' type='submit' value="Filter by Artist">
+            </form>
+        </div>
+        <div class='tusdatos-spotifyapp-results-return'>
+            <a href='../back'>Reset Filters</a>
+        </div>
     </div>
     
-    {% for song in songs %}
-        <img src='{{ song["album_cover"] }}' height=300 width=300>
-        <h2>"{{ song["song_name"] }}"</h2>
-        <h3><i>{{ song["album_name"] }}</i></h3>
-        <h4>{{ song["artist_name"] }}</h4>
-        <a href='{{ song["spotify_link"] }}'>Link to Spotify</a>
-    {% endfor %}
-
+    <div class='tusdatos-spotifyapp-results-resultscontainer'>
+        {% for song in songs %}
+        <div class='tusdatos-spotifyapp-results-result'>
+            <div class='tusdatos-spotifyapp-results-result-cover'>
+                <img src='{{ song["album_cover"] }}'>
+            </div>
+            <div class='tusdatos-spotifyapp-results-result-data'>
+                <h4>"{{ song["song_name"] }}"</h4>
+                <h4><i>{{ song["album_name"] }}</i></h4>
+                <h4>{{ song["artist_name"] }}</h4>
+                <audio controls src='{{ song["preview_url"] }}'>
+                    Your browser does not support the
+                    <code>audio</code> element.
+                </audio>
+                <br/>
+                <a href='{{ song["spotify_link"] }}' target='_blank'>Link to Spotify</a>
+                <a href='{{ song["uri"] }}'>Open in App</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    
+</div>
 
 {% endblock %}
