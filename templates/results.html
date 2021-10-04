@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Spotify Search
+{% endblock %}
+
+{% block body %}
+<h1>Find on Spotify</h1>
+    <div>
+        <form action='/' method='post'>
+            <label for='title'>Search: </label>
+            <input type='text' name='title' optional>
+            <br/>
+            <input class='submit' type='submit' value="Search">
+        </form>
+    </div>
+
+    <div>
+        <form action="/filter_by_album" method="post">
+            <select name='album'>
+                {% for album in albums_filter %}
+                <option value="{{album}}">{{ album }}</option>
+                {% endfor %}
+            </select>
+            <input value="{{ title }}" name="title" type="hidden">
+            <input class='submit' type='submit' value="Filter by Album">
+        </form>
+        <form action="/filter_by_artist" method="post">
+            <select name='artist'>
+                {% for artist in artists_filter %}
+                <option value="{{artist}}">{{ artist }}</option>
+                {% endfor %}
+            </select>
+            <input value="{{ title }}" name="title" type="hidden">
+            <input class='submit' type='submit' value="Filter by Artist">
+        </form>
+    </div>
+    
+    {% for song in songs %}
+        <img src='{{ song["album_cover"] }}' height=300 width=300>
+        <h2>"{{ song["song_name"] }}"</h2>
+        <h3><i>{{ song["album_name"] }}</i></h3>
+        <h4>{{ song["artist_name"] }}</h4>
+        <a href='{{ song["spotify_link"] }}'>Link to Spotify</a>
+    {% endfor %}
+
+
+{% endblock %}

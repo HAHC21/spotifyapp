@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Spotify Search
+{% endblock %}
+
+{% block body %}
+<h1>Find on Spotify</h1>
+    <div>
+        <form action='/' method='post'>
+            <label for='title'>Song Title: </label>
+            <input type='text' name='title' optional>
+            <br/>
+            <input class='submit' type='submit' value="Search">
+        </form>
+    </div>
+
+{% endblock %}
