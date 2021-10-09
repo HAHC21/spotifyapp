@@ -49,7 +49,7 @@ def index():
         querystring = {"query":f"{title}","count":"200", "type":"tracks"}
         headers = {
             'x-rapidapi-host': "unsa-unofficial-spotify-api.p.rapidapi.com",
-            'x-rapidapi-key': "4ce7fb66fbmsh75f27b6cb5e1416p13155djsn7869b3c397e0"
+            'x-rapidapi-key': ""
             }
 
         response = requests.request("GET", url, headers=headers, params=querystring)
